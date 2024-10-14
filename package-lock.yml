@@ -1,0 +1,10 @@
+packages:
+  - package: brooklyn-data/dbt_artifacts
+    version: 2.7.0
+  - package: dbt-labs/spark_utils
+    version: 0.3.0
+  - package: dbt-labs/dbt_project_evaluator
+    version: 0.13.2
+  - package: dbt-labs/dbt_utils
+    version: 1.3.0
+sha1_hash: e1fee9b13be19ed36d77fc973d3a515f6be54f6d
