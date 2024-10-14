@@ -1,0 +1,31 @@
+name: sqlfluff project
+
+on:
+  push:
+    branches-ignore:
+      - 'main'
+
+
+jobs:
+  sqlfluff_project:
+    name: test SQLFluff
+    runs-on: ubuntu-latest
+
+    env:
+      DBT_PROFILES_DIR: ${{ github.workspace }}/.dbt
+      DB_HOST: ${{ secrets.DBX_HOST }}
+      DBX_TOKEN: ${{ secrets.DBX_TOKEN }}
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+      
+      - name: Install SQLFluff, dbt templater, and dbt-core
+        run: |
+          pip install sqlfluff
+          pip install sqlfluff-templater-dbt
+          pip install dbt-databricks
+
+      - name: dbt_dbx_sqlfluff
+        run: sqlfluff lint models/*.sql --config .github/workflows/sqlfluff.ini
