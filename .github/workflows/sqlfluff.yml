@@ -13,7 +13,7 @@ jobs:
 
     env:
       DBT_PROFILES_DIR: ${{ github.workspace }}/.dbt
-      DB_HOST: adb-7621144643150231.11.azuredatabricks.net  
+      DB_HOST: .net
       DBX_TOKEN_0907: ${{ secrets.DBX_TOKEN_0907 }} 
                 
     steps:
