@@ -14,7 +14,7 @@ jobs:
     env:
       DBT_PROFILES_DIR: ${{ github.workspace }}/.dbt
       DB_HOST: ${{ secrets.DBX_HOST }}
-      DBX_TOKEN_0907: ${{ secrets.DBX_TOKEN }}
+      DBX_TOKEN: ${{ secrets.DBX_TOKEN }}
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-python@v2
